@@ -22,7 +22,7 @@ def obtener_provincia(nombre):
     # La simulación toma la cobertura nacional y aplica una ligera variación.
     datos = []
     for r in _cargar():
-        anio = r.get("año")
+        año = r.get("año")
         cobertura = r.get("cobertura", 0.0)
         # _sim devuelve un factor entre 0.95 y 0.99 para variar por año
         factor = _sim(año)
