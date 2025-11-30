@@ -8,8 +8,8 @@ def todas_vacunas():
     return jsonify(obtener_todos())
 
 @app.get("/vacunas/<int:ano>")
-def vacuna_por_ano(ano):
-    r = obtener_por_ano(ano)
+def vacuna_por_año(año):
+    r = obtener_por_año(año)
     return (jsonify(r), 200) if r else (jsonify({"error": "No encontrado"}), 404)
 
 @app.get("/vacunas/provincia/<nombre>")
