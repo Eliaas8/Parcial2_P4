@@ -8,10 +8,10 @@ def _cargar():
 def obtener_todos():
     return _cargar()
 
-def obtener_por_ano(a):
+def obtener_por_año(a):
     for r in _cargar():
         try:
-            if int(r.get("anio")) == a:
+            if int(r.get("año")) == a:
                 return r
         except Exception:
             continue
@@ -22,20 +22,20 @@ def obtener_provincia(nombre):
     # La simulación toma la cobertura nacional y aplica una ligera variación.
     datos = []
     for r in _cargar():
-        anio = r.get("anio")
+        anio = r.get("año")
         cobertura = r.get("cobertura", 0.0)
         # _sim devuelve un factor entre 0.95 y 0.99 para variar por año
-        factor = _sim(anio)
+        factor = _sim(año)
         datos.append({
             "provincia": nombre,
-            "anio": anio,
+            "año": año,
             "cobertura": round(cobertura * factor, 2)
         })
     return datos
 
-def _sim(anio):
+def _sim(año):
     # Simulación determinística para dar ligeras diferencias por año.
     try:
-        return (abs(int(anio) % 5) + 95) / 100.0
+        return (abs(int(año) % 5) + 95) / 100.0
     except Exception:
         return 0.97
