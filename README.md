@@ -3,7 +3,7 @@
 Estructura:
 - src/: código fuente (app.py, vacunas.py)
 - data/: JSON con datos (sh_imm_meas.json)
-- tests/: pruebas unitarias (pytest)
+- tests/: pruebas unitarias (api.py)
 
 Ejecutar local:
 1. Ir a la carpeta src
